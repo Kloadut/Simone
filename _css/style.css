@@ -17,12 +17,14 @@ pre {
 }
 
 #wrapper #win {
+    z-index: 1000;
     position: absolute;
     width: 880px;
     top: 23px;
 }
 
 #wrapper #fail {
+    z-index: 1000;
     position: absolute;
     width: 880px;
     top: 23px;
