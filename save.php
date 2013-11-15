@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
             $action = 'Update';
         }
     }
-    if ($action != 'Remove') {
+    if ($action != 'Remove' && $_POST["content"] != '') {
         $file = fopen($path.'/_pages/'. $_POST["page"] .'.md', 'w');
         fwrite($file, $_POST["content"]);
         fclose($file);
