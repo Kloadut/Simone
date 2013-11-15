@@ -1,0 +1,72 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+pre {
+    padding: 0;
+}
+
+#wrapper {
+    max-width: 920px;
+    padding: 20px 20px 50px;
+    margin: 0 auto;
+}
+
+#content {
+    text-align: justify;
+}
+
+#form {
+    position: absolute;
+    top: 1%;
+    margin-left: -20px;
+    padding: 20px;
+    height: 88%;
+    width: 100%;
+    max-width: 920px;
+    z-index: 1;
+}
+
+#form textarea {
+    font-family: monospace;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+#form textarea:focus {
+    border: none;
+}
+
+.actions {
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+    /*width: 120px;*/
+    text-align: right;
+    z-index: 2;
+}
+
+.actions a, .actions button {
+    display: inline-block;
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.languages {
+    position: fixed;
+    bottom: 5px;
+    left: 15px;
+    /*width: 120px;*/
+    text-align: left;
+    z-index: 2;
+}
+
+.languages button {
+    display: inline-block;
+    margin-bottom: 10px;
+}
