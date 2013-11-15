@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
     echo 'Generating RSS ... '.str_pad('', 4096); flush();
     exec('ruby '.$path.'/gitrss.rb '.$path.'/_pages http://doc.yunohost.org/ "YunoHost documentation" > '.$path.'/feed.rss', $result, $result_code);
     if (!$result_code) { echo "OK<br />".str_pad('', 4096); flush(); }
-    header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
 } else {
     header($_SERVER['SERVER_PROTOCOL'].' 401 UNAUTHORIZED');
 }
