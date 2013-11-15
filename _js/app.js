@@ -96,7 +96,7 @@ $(document).ready(function () {
     });
 
     function sendModifications(page) {
-        auth = "Basic "+ btoa($('#user').val() +':'+ $('password').val());
+        auth = "Basic "+ btoa($('#user').val() +':'+ $('#password').val());
         $.ajax({
             url: 'save.php',
             type: 'POST',
