@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
     @ini_set('implicit_flush',1);
     @ob_end_clean();
     set_time_limit(120);
+    ob_implicit_flush(1);
     $user = $_SERVER['PHP_AUTH_USER'];
     $path = dirname(__FILE__);
     $action = 'Add';
