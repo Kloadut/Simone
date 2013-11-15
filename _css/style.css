@@ -16,6 +16,18 @@ pre {
     margin: 0 auto;
 }
 
+#wrapper #win {
+    position: absolute;
+    width: 880px;
+    top: 23px;
+}
+
+#wrapper #fail {
+    position: absolute;
+    width: 880px;
+    top: 23px;
+}
+
 #content {
     text-align: justify;
 }
