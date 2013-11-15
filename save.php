@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
         fclose($file);
         echo "OK<br />".str_pad('', 4096); flush();
     }
-    echo 'Pulling changes .md ... '.str_pad('', 4096); flush();
+    echo 'Pulling changes ... '.str_pad('', 4096); flush();
     exec('cd '.$path.'/_pages && git pull', $result, $result_code);
     if (!$result_code) { echo "OK<br />".str_pad('', 4096); flush(); }
     echo 'Committing changes ... '.str_pad('', 4096); flush();
