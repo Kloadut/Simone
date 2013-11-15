@@ -1,11 +1,11 @@
-Light Doc
-=========
+Simone
+======
 
 
 Installation
 ------------
 
-Clone
-Chown www
-Protect save.php with .htpasswd
-git init in _pages
+* Clone
+* Chown www
+* Protect save.php with .htpasswd
+* git init in _pages
