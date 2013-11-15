@@ -1,8 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //$user = $_SERVER['PHP_AUTH_USER'];
-    $user = "kload@kload.fr";
+    $user = $_SERVER['PHP_AUTH_USER'];
     $path = dirname(__FILE__);
     $action = 'Add';
     if (file_exists($path.'/_pages/'. $_POST["page"] .'.md')) {
