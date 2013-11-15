@@ -17,9 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
         fwrite($file, $_POST["content"]);
         fclose($file);
     }
-    exec('cd '.$path.'/_pages && git add --all . && git commit -m "'.$action.' '.$_POST["page"] .'.md" --author="'.$user.' <'.$user.'>"');
-    // Only if you have a SSH key without password
-    exec('cd '.$path.'/_pages && git push');
+    exec('cd '.$path.'/_pages && git pull && git add --all . && git commit -m "'.$action.' '.$_POST["page"] .'.md" --author="'.$user.' <'.$user.'>"');
+    exec('cd '.$path.'/_pages && git push'); // Only if you have a SSH key without password
     exec('ruby '.$path.'/gitrss.rb '.$path.'/_pages http://doc.yunohost.org/ "YunoHost documentation" > '.$path.'/feed.rss');
     header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
 } else {
