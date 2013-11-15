@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
     $user = $_SERVER['PHP_AUTH_USER'];
     $path = dirname(__FILE__);
     $action = 'Add';
@@ -21,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Only if you have a SSH key without password
     exec('cd '.$path.'/_pages && git push');
     exec('ruby '.$path.'/gitrss.rb '.$path.'/_pages http://doc.yunohost.org/ "YunoHost documentation" > '.$path.'/feed.rss');
-    http_response_code(200);
+    header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
 } else {
-    http_response_code(405);
+    header($_SERVER['SERVER_PROTOCOL'].' 401 UNAUTHORIZED');
 }
 
 ?>
