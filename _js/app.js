@@ -97,6 +97,7 @@ $(document).ready(function () {
 
     function sendModifications(page) {
         auth = "Basic "+ btoa($('#user').val() +':'+ $('#password').val());
+        $('.modal-footer').append('&nbsp;<img src="/ajax-loader.gif" class="ajax-loader">');
         $.ajax({
             url: 'save.php',
             type: 'POST',
@@ -107,6 +108,7 @@ $(document).ready(function () {
         })
         .success(function(data) {
             $('#sendModal').modal('hide');
+            $('.ajax-loader').remove();
             $('#win').fadeIn('fast', function() {
                 setTimeout(function() {
                     $('#win').fadeOut();
@@ -115,6 +117,7 @@ $(document).ready(function () {
             return true;
         })
         .fail(function(xhr) {
+            $('.ajax-loader').remove();
             if (xhr.status == 401) {
                 $('#sendModal alert p').html('Wrong username/password combination');
             } else {
