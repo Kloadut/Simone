@@ -159,6 +159,9 @@ $(document).ready(function () {
     $('#preview').on('click', function() {
         store.set('data-'+ store.get('page'), $('#form textarea').val());
     });
+    $('#send').on('click', function() {
+        store.set('data-'+ store.get('page'), $('#form textarea').val());
+    });
     $('#reallysend').on('click', function() {
         page = store.get('page');
         if (sendModifications(page)) {
