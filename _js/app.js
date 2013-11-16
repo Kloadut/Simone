@@ -13,6 +13,15 @@ $(document).ready(function () {
         sam.helpers({
             view: function (page) {
                 var c = this;
+                if (page.substr(page.length - 3, 1) != '_') {
+                    currentLang = store.get('lang');
+                    if (currentLang != conf.defaultLanguage) {
+                        document.location.href = '#/'+ page +'_'+ currentLang;
+                    }
+                } else if (page.substr(page.length - 2) == conf.defaultLanguage) {
+                    // Indicate page specifically
+                    page = page.substr(0, page.length - 3);
+                }
                 store.set('page', page);
 
                 var d = store.get('data-'+ page);
@@ -22,10 +31,9 @@ $(document).ready(function () {
                     $.get('_pages/'+ page +'.md', function(data) {
                         loadMD(c, data);
                     }).fail(function() {
-                        var href = document.location.href;
-                        var append = ''
-                        if (href.substr(href.length - 3, 1) == '_') {
-                             append = href.substr(href.length - 3);
+                        var append = '';
+                        if (store.get('lang') != conf.defaultLanguage) {
+                             append = '_'+ store.get('lang');
                         }
                         $.get('_pages/default'+ append +'.md', function(data) {
                             loadMD(c, data);
@@ -147,6 +155,7 @@ $(document).ready(function () {
             key = $( this ).attr('data-i18n');
             $( this ).text(i18n[lang][key]);
         });
+        store.set('lang', lang);
     }
 
     $(document).keyup(function(e) {
