@@ -155,7 +155,7 @@ $(document).ready(function () {
     function changeLanguage(lang) {
         $('[data-i18n]').each( function() {
             key = $( this ).attr('data-i18n');
-            $( this ).text(i18n[lang][key]);
+            $( this ).html(i18n[lang][key]);
         });
         store.set('lang', lang);
     }
@@ -183,6 +183,9 @@ $(document).ready(function () {
     });
     $('#send').on('click', function() {
         store.set('data-'+ store.get('page'), $('#form textarea').val());
+        $("#filename").text(store.get('page') +'.md');
+        $("#repogit").text(conf.gitRepository).attr('href', conf.gitRepository);
+        $("#gitarea").val($('#form textarea').val());
     });
     $('#reallysend').on('click', function() {
         page = store.get('page');
@@ -191,9 +194,26 @@ $(document).ready(function () {
         }
     });
 
+    $('#sendMail').on('click', function() {
+        //var link = "mailto:" + conf.requestEmail
+                 //+ "?subject=" + "[" + conf.siteName +" Doc Request] "+ escape(store.get('page')) + '.md'
+                 //+ "&body=" + $('#form textarea').val();
+        //alert(link);
+        //window.location.href = link;
+
+        var w = window.open('', '', 'width=600,height=400,resizeable,scrollbars');
+        w.document.write('<strong>'+ i18n[store.get('lang')].subject + '</strong>: [' + conf.siteName +" Doc Request] "+ escape(store.get('page')) + '.md<br>'
+                        +'<strong>'+ i18n[store.get('lang')].body + '</strong>: <pre><code>' + $('#form textarea').val() +'</code></pre>');
+        w.document.close();
+    });
+
     $('ul.dropdown-menu').on('click', '.change-language', function() {
         changeLanguage($( this ).attr('data-lang'));
         $('.dropdown-toggle').dropdown('toggle');
+    });
+
+    $('#gitarea').focus(function() {
+        $(this).select();
     });
 
     $.getJSON('i18n.json', function(lng) {
@@ -201,11 +221,15 @@ $(document).ready(function () {
         $.getJSON('config.json', function(data) {
             conf = data;
             console.log(conf);
-            language = window.navigator.language.substr(0, 2);
-            if (typeof i18n[language] !== undefined) {
-                changeLanguage(language);
+            if (store.get('lang') !== null) {
+                changeLanguage(store.get('lang'));
             } else {
-                changeLanguage(conf.defaultLanguage);
+                language = window.navigator.language.substr(0, 2);
+                if (typeof i18n[language] !== undefined) {
+                    changeLanguage(language);
+                } else {
+                    changeLanguage(conf.defaultLanguage);
+                }
             }
             app.run('#/');
         });

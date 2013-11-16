@@ -91,3 +91,13 @@ pre {
     display: inline-block;
     margin-bottom: 10px;
 }
+
+#gitarea {
+    width: 100%;
+    border-color: #CCC;
+    height: 5em;
+    color: #666;
+    font-size: 0.7em;
+    font-family: monospace;
+}
+
