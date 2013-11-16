@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function sendModifications(page) {
         auth = "Basic "+ btoa($('#user').val() +':'+ $('#password').val());
-        $('.modal-footer').append('&nbsp;<img src="/ajax-loader.gif" class="ajax-loader">');
+        $('#reallysend').after('&nbsp;<img src="/ajax-loader.gif" class="ajax-loader">');
         $.ajax({
             url: 'save.php',
             type: 'POST',
@@ -121,7 +121,7 @@ $(document).ready(function () {
             $('#win').fadeIn('fast', function() {
                 setTimeout(function() {
                     $('#win').fadeOut();
-                }, 4000);
+                }, 3000);
             });
             return true;
         })
@@ -134,7 +134,7 @@ $(document).ready(function () {
                 $('#fail').fadeIn('fast', function() {
                     setTimeout(function() {
                         $('#fail').fadeOut();
-                    }, 4000);
+                    }, 3000);
                 });
                 return false;
             }
