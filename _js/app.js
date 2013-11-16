@@ -16,7 +16,7 @@ $(document).ready(function () {
                 if (page.substr(page.length - 3, 1) != '_') {
                     currentLang = store.get('lang');
                     if (currentLang != conf.defaultLanguage) {
-                        document.location.href = '#/'+ page +'_'+ currentLang;
+                        c.redirect('#/'+ page +'_'+ currentLang);
                     }
                 } else if (page.substr(page.length - 2) == conf.defaultLanguage) {
                     // Indicate page specifically
