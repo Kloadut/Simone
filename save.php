@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
     if (!preg_match('/^[A-Za-z0-9_]+$/', $page)) {
         die;
     }
-    $content = $_POST["content"]
+    $content = $_POST["content"];
     $path = dirname(__FILE__);
     $action = 'Add';
     if (file_exists($path.'/_pages/'. $page .'.md')) {
