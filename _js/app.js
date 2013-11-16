@@ -171,7 +171,6 @@ $(document).ready(function () {
         store.set('data-'+ store.get('page'), $('#form textarea').val());
     });
     $('#send').on('click', function() {
-        alert('meh');
         store.set('data-'+ store.get('page'), $('#form textarea').val());
     });
     $('#reallysend').on('click', function() {
