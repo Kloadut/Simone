@@ -16,11 +16,13 @@ $(document).ready(function () {
                 if (page.substr(page.length - 3, 1) != '_') {
                     currentLang = store.get('lang');
                     if (currentLang != conf.defaultLanguage) {
-                        c.redirect('#/'+ page +'_'+ currentLang);
+                        page = page +'_'+ currentLang;
+                        c.redirect('#/'+ page);
                     }
                 } else if (page.substr(page.length - 2) == conf.defaultLanguage) {
                     // Indicate page specifically
                     page = page.substr(0, page.length - 3);
+                    c.redirect('#/'+ page);
                 }
                 store.set('page', page);
 
