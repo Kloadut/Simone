@@ -195,12 +195,6 @@ $(document).ready(function () {
     });
 
     $('#sendMail').on('click', function() {
-        //var link = "mailto:" + conf.requestEmail
-                 //+ "?subject=" + "[" + conf.siteName +" Doc Request] "+ escape(store.get('page')) + '.md'
-                 //+ "&body=" + $('#form textarea').val();
-        //alert(link);
-        //window.location.href = link;
-
         var w = window.open('', '', 'width=600,height=400,resizeable,scrollbars');
         w.document.write('<strong>'+ i18n[store.get('lang')].subject + '</strong>: [' + conf.siteName +" Doc Request] "+ escape(store.get('page')) + '.md<br>'
                         +'<strong>'+ i18n[store.get('lang')].body + '</strong>: <pre><code>' + $('#form textarea').val() +'</code></pre>');
