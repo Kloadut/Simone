@@ -2,7 +2,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -30,8 +30,20 @@ pre {
     top: 23px;
 }
 
-#content {
-    text-align: justify;
+@media all and (min-width: 640px) {
+    #content {
+        text-align: justify;
+    }
+}
+
+@media all and (max-width: 640px) {
+    body {
+        font-size: 1.6em;
+    }
+    h1 { font-size: 200%; }
+    h2 { font-size: 160%; }
+    h3 { font-size: 120%; }
+    h4 { font-size: 100%; }
 }
 
 #form {
