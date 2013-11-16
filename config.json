@@ -1,4 +1,5 @@
 {
+    "siteName": "YunoHost",
     "defaultLanguage": "en",
     "languages": {
          "en": "English",

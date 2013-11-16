@@ -1,0 +1,34 @@
+{
+    "en": {
+        "edit": "Edit",
+        "preview": "Preview",
+        "save": "Save",
+        "revert": "Revert",
+        "languages": "Languages",
+        "saveModifications": "Save Modifications",
+        "authenticate": "You need to authenticate to save modifications of this page",
+        "email": "Email",
+        "password": "Password",
+        "youDontHaveAccount": "You don't have an account ?",
+        "close": "Close",
+        "saveChanges": "Save changes",
+        "modificationSaved": "Modifications successfully saved",
+        "modificationFailed": "An error occured on modification saving"
+    },
+    "fr": {
+        "edit": "Éditer",
+        "preview": "Aperçu",
+        "save": "Sauver",
+        "revert": "Annuler",
+        "languages": "Langues",
+        "saveModifications": "Enregistrer les modifications",
+        "authenticate": "Vous devez vous authentifier pour sauvegarder",
+        "email": "Email",
+        "password": "Mot de passe",
+        "youDontHaveAccount": "Vous n'avez pas de compte ?",
+        "close": "Fermer",
+        "saveChanges": "Enregistrer",
+        "modificationSaved": "Les modifications ont été enregistrées",
+        "modificationFailed": "Une erreur est survenu pendant l'enregistrement"
+    }
+}

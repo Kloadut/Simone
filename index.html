@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>YunoHost Doc</title>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" type="text/css" href="_css/bootstrap.min.css">
@@ -14,8 +14,8 @@
 <body>
 
     <div id="wrapper">
-        <div id="win" class="alert alert-success" style="display: none">Modifications successfully saved</div>
-        <div id="fail" class="alert alert-danger" style="display: none">An error occured on modification saving</div>
+        <div id="win" class="alert alert-success" style="display: none" data-i18n="modificationSaved"></div>
+        <div id="fail" class="alert alert-danger" style="display: none" data-i18n="modificationFailed"></div>
         <div id="form">
             <textarea cols="80" rows="40"></textarea>
         </div>
@@ -24,23 +24,24 @@
 
     <div class="actions">
         <a class="btn btn-default" id="edit">
-            <span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit
+            <span class="glyphicon glyphicon-pencil"></span>&nbsp; <span data-i18n="edit"></span>
         </a>
         <a class="btn btn-default" id="preview">
-            <span class="glyphicon glyphicon-eye-open"></span>&nbsp; Preview
+            <span class="glyphicon glyphicon-eye-open"></span>&nbsp; <span data-i18n="preview"></span>
         </a>
         <button type="button" class="btn btn-primary" id="send" data-toggle="modal" data-target="#sendModal">
-            <span class="glyphicon glyphicon-ok"></span>&nbsp; Save
+            <span class="glyphicon glyphicon-ok"></span>&nbsp; <span data-i18n="save"></span>
         </button>
         <a class="btn btn-danger" id="back">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp; Revert
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp; <span data-i18n="revert"></span>
         </a>
     </div>
 
     <div class="languages">
+        <a class="btn btn-default" id="help" href="#/help">?</a>
         <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-globe"></span>&nbsp; Languages &nbsp;<span class="caret"></span>
+            <span class="glyphicon glyphicon-globe"></span>&nbsp; <span data-i18n="languages"></span> &nbsp;<span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
           </ul>
@@ -53,30 +54,30 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title" id="sendModalLabel">Save modifications</h3>
+            <h3 class="modal-title" id="sendModalLabel" data-i18n="saveModifications"></h3>
           </div>
             <form class="form-horizontal" method="POST" role="form">
           <div class="modal-body">
             <div class="alert alert-info">
-                <p>You need to authenticate to save modifications of this page</p>
+                <p data-i18n="authenticate"></p>
             </div>
               <div class="form-group">
-                <label for="user" class="col-sm-3 control-label">Email</label>
+                <label for="user" class="col-sm-3 control-label" data-i18n="email"></label>
                 <div class="col-sm-9">
                   <input type="email" class="form-control" id="user" name="user" placeholder="john@doe.org" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Password</label>
+                <label for="password" class="col-sm-3 control-label" data-i18n="password"></label>
                 <div class="col-sm-9">
                   <input type="password" class="form-control" id="password" name="password" placeholder="•••••" required>
                 </div>
               </div>
-              <a class="pull-right" href="#/accounting">You don't have an account ?</a>
+              <a class="pull-right" href="#/accounting" data-i18n="youDontHaveAccount"></a>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="reallysend">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-i18n="close"></button>
+            <button type="button" class="btn btn-primary" id="reallysend" data-i18n="saveChanges"></button>
           </div>
             </form>
         </div><!-- /.modal-content -->
