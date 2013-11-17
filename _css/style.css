@@ -79,6 +79,14 @@ pre {
     /*width: 120px;*/
     text-align: right;
     z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.actions.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .actions a, .actions button {
@@ -94,6 +102,14 @@ pre {
     /*width: 120px;*/
     text-align: left;
     z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.languages.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .languages button {

@@ -211,6 +211,20 @@ $(document).ready(function () {
         $(this).select();
     });
 
+    var timer;
+
+    $(window).mousemove(function () {
+      $('.actions').addClass('show');
+      $('.languages').addClass('show');
+      try {
+        clearTimeout(timer);
+      } catch (e) {}
+      timer = setTimeout(function () {
+        $('.actions').removeClass('show');
+        $('.languages').removeClass('show');
+      }, 1000);
+    });
+
     $.getJSON('i18n.json', function(lng) {
         i18n = lng;
         $.getJSON('config.json', function(data) {
