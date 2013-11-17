@@ -70,7 +70,7 @@ $(document).ready(function () {
                 else { append = '_'+key }
                 $(".languages ul.dropdown-menu").append('<li><a class="change-language" data-lang="'+ key +'" href="'+ href+append +'">'+ val +'</a></li>');
             });
-            $(".languages").fadeIn('fast');
+            $(".languages").removeClass('hide').fadeIn('fast');
 
         });
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
             document.title = 'Edit '+ c.params['name'];
             $('#sendModal').modal('hide');
             $('.actions').children().hide();
-            $('.languages').hide();
+            $('.languages').addClass('hide');
             $('#content').hide();
             $('#preview').attr('href', '#/'+ c.params['name'] +'/preview').fadeIn('fast');
             $('#back').attr('href', '#/'+ c.params['name']).fadeIn('fast');
@@ -93,7 +93,7 @@ $(document).ready(function () {
             document.title = 'Preview '+ c.params['name'];
             $('#sendModal').modal('hide');
             $('.actions').children().hide();
-            $('.languages').hide();
+            $('.languages').addClass('hide');
             $('#form').hide();
             $('#edit').attr('href', '#/'+ c.params['name'] +'/edit').fadeIn('fast');
             $('#back').attr('href', '#/'+ c.params['name']).fadeIn('fast');
@@ -214,15 +214,15 @@ $(document).ready(function () {
     var timer;
 
     $(window).mousemove(function () {
-      $('.actions').addClass('show');
-      $('.languages').addClass('show');
-      try {
-        clearTimeout(timer);
-      } catch (e) {}
-      timer = setTimeout(function () {
-        $('.actions').removeClass('show');
-        $('.languages').removeClass('show');
-      }, 1000);
+        $('.actions').addClass('show');
+        $('.languages').addClass('show');
+        try {
+            clearTimeout(timer);
+        } catch (e) {}
+        timer = setTimeout(function () {
+            $('.actions').removeClass('show');
+            $('.languages').removeClass('show');
+        }, 1000);
     });
 
     $.getJSON('i18n.json', function(lng) {
