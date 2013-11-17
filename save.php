@@ -6,6 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
     if (!preg_match('/^[A-Za-z0-9_]+$/', $page)) {
         die;
     }
+    if (file_exists($path.'/commit.lock')) {
+        sleep(10);
+    }
     $content = $_POST["content"];
     $path = dirname(__FILE__);
     $action = 'Add';
@@ -21,10 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['PHP_AUTH_USER'])) {
         $file = fopen($path.'/_pages/'. $page .'.md', 'w');
         fwrite($file, $content);
         fclose($file);
-    }
-
-    if (file_exists($path.'/commit.lock')) {
-        sleep(10);
     }
 
     exec('touch '.$path.'/commit.lock');
