@@ -10,6 +10,10 @@ pre {
     padding: 0;
 }
 
+.glyphicon {
+    top: 2px;
+}
+
 #wrapper {
     max-width: 920px;
     padding: 20px 20px 50px;
