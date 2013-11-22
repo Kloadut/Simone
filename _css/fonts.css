@@ -220,3 +220,31 @@
 
 }
 
+/* Source Sans Pro */
+@font-face {
+    font-family: 'CosmicSansNeueMono';
+        src: url('../fonts/CosmicSansNeueMonoBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CosmicSansNeueMono';
+        src: url('../fonts/CosmicSansNeueMonoRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CosmicSansNeueMono';
+        src: url('../fonts/CosmicSansNeueMonoRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CosmicSansNeueMono';
+        src: url('../fonts/CosmicSansNeueMonoBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
