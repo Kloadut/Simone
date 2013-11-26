@@ -6,7 +6,17 @@ $(document).ready(function () {
         }
     });
 
-    var store = new Sammy.Store({name: 'storage', type: 'session'});
+    // Look for supported type of storage to use
+    var storageType;
+    if (Sammy.Store.isAvailable('session')) {
+        storageType = 'session';
+    } else if (Sammy.Store.isAvailable('cookie')) {
+        storageType = 'cookie';
+    } else {
+        storageType = 'memory';        
+    }
+
+    var store = new Sammy.Store({name: 'storage', type: storageType});
 
     var app = Sammy('#content', function(sam) {
 
