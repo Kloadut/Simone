@@ -149,6 +149,7 @@ $(document).ready(function () {
             if ($("h1").length > 0) {
                 title = $("h1:first-child").text();
             }
+            $('table').addClass('table').addClass('table-bordered');
             document.title = title +' | '+ conf.siteName;
         });
     }
