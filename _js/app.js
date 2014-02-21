@@ -246,7 +246,7 @@ $(document).ready(function () {
                 changeLanguage(store.get('lang'));
             } else {
                 language = window.navigator.language.substr(0, 2);
-                if (typeof i18n[language] !== undefined) {
+                if (typeof i18n[language] !== 'undefined') {
                     changeLanguage(language);
                 } else {
                     changeLanguage(conf.defaultLanguage);
