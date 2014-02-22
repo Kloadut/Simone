@@ -61,7 +61,12 @@ $(document).ready(function () {
         });
 
         sam.get('#/', function (c) {
-            c.redirect('#', 'index');
+            absolutePage = location.href.split('#/')[0].split('/').pop();
+            if (absolutePage !== "") {
+                c.redirect('/#/'+ absolutePage);
+            } else {
+                c.redirect('#', 'index');
+            }
         });
 
         sam.get('#/:name', function (c) {
