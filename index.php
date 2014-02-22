@@ -103,7 +103,7 @@
     </div>
 
     <div class="languages" style="display: none">
-        <a class="btn btn-default" id="help" target="_blank" href="#/help">?</a>
+        <a class="btn btn-default" id="help" target="_blank" href="/help">?</a>
         <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span class="glyphicon glyphicon-globe"></span>&nbsp; <span data-i18n="languages"></span> &nbsp;<span class="caret"></span>
