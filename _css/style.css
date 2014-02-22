@@ -1,3 +1,17 @@
+*, *:before, *:after {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.panel-body *,
+.panel-body *:before,
+.panel-body *:after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
