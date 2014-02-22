@@ -13,12 +13,18 @@
     }
 
     // Get route
-    if ($_SERVER["REQUEST_URI"] === '/') {
-        $uri = 'index'.$suffix;
-    } elseif (substr($_SERVER["REQUEST_URI"], -1) === '_')  {
-        $uri = substr($_SERVER["REQUEST_URI"], 1, -1);
+    if (isset($_GET['uri'])) {
+        $rURI = $_GET['uri'];
     } else {
-        $uri = substr($_SERVER["REQUEST_URI"], 1);
+        $rURI = $_SERVER["REQUEST_URI"];
+    }
+
+    if ($rURI === '/') {
+        $uri = 'index'.$suffix;
+    } elseif (substr($rURI, -1) === '_')  {
+        $uri = substr($rURI, 1, -1);
+    } else {
+        $uri = substr($rURI, 1);
     }
 
     // Construct title
@@ -37,9 +43,9 @@
     $content = Markdown($markdown);
 ?>
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="<?php echo $lang ?>">
 <head>
-<title><?= $title ?></title>
+<title><?php echo $title ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height" />
@@ -77,7 +83,7 @@
             <textarea cols="80" rows="40"></textarea>
         </div>
         <div id="content">
-            <?= $content ?>
+            <?php echo $content ?>
         </div>
     </div>
 
