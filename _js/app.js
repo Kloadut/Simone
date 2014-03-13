@@ -167,7 +167,7 @@ $(document).ready(function () {
         $('#content').html('');
         c.swap(html, function() {
             if ($("h1").length > 0) {
-                title = $("h1:first-child").text();
+                title = $("h1")[0].text();
             }
             $('table').addClass('table').addClass('table-bordered');
             document.title = title +' | '+ conf.siteName;
