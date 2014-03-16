@@ -165,3 +165,13 @@ p {
     font-family: 'CosmicSansNeueMono', monospace;
 }
 
+#previous {
+    color: #999;
+    font-size: 65%;
+    padding-right: 10px;
+}
+
+#previous:hover {
+    text-decoration: none;
+    color: black;
+}
