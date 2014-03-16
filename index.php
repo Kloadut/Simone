@@ -28,7 +28,7 @@
     }
 
     // Construct title
-    $title = $config['siteName'].' | '.$uri;
+    $title = $config['siteName'].' • '.$uri;
 
     // Try to get markdown file
     $markdown = file_get_contents('_pages/'.$uri.'.md');

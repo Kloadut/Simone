@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         sam.get('#/:name', function (c) {
             c.view(c.params['name']);
-            title = c.params['name'] +' | '+ conf.siteName;
+            title = c.params['name'] +' • '+ conf.siteName;
             $('#sendModal').modal('hide');
             $('.actions').children().hide();
             $('#form').hide();
@@ -170,7 +170,7 @@ $(document).ready(function () {
                 title = $("h1")[0].text();
             }
             $('table').addClass('table').addClass('table-bordered');
-            document.title = title +' | '+ conf.siteName;
+            document.title = title +' • '+ conf.siteName;
 
             // Rewrite links
             $('#content a').each(function () {
