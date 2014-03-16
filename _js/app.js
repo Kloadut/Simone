@@ -282,7 +282,11 @@ $(document).ready(function () {
                     changeLanguage(conf.defaultLanguage);
                 }
             }
-            app.run('#/');
+            if (location.href.split('#').length > 1) {
+                window.location.replace(location.href.split('#')[0]);
+            } else {
+                app.run('#/');
+            }
         });
     });
 });
