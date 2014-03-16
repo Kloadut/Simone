@@ -187,7 +187,7 @@ $(document).ready(function () {
 
             // Scroll to anchor
             if (typeof anchor !== 'undefined' && $('#'+ anchor).length > 0) {
-                $('body').animate({
+                $('html, body').animate({
                     'scrollTop': $('#'+ anchor).offset().top - 10
                 }, 500);
             }
