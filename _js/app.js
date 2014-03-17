@@ -282,7 +282,7 @@ $(document).ready(function () {
                     changeLanguage(conf.defaultLanguage);
                 }
             }
-            if (location.href.split('#').length > 1) {
+            if (location.href.split('#').length > 1 && !location.href.match(/\/#\//g)) {
                 window.location.replace(location.href.split('#')[0]);
             } else {
                 app.run('#/');
