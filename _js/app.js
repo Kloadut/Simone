@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#content').hide();
 
     marked.setOptions({
         highlight: function (code, lang) {
@@ -46,19 +47,28 @@ $(document).ready(function () {
                 if (d !== null) {
                    loadMD(c, d);
                 } else {
-                    $.get('_pages/'+ page +'.md', function(data) {
-                        loadMD(c, data);
-                    }).fail(function() {
-                        var append = '';
-                        if (store.get('lang') != conf.defaultLanguage) {
-                             append = '_'+ store.get('lang');
+                    $("#content").fadeOut(100, function() {
+                        loaded = false;
+                        if ($('div.loader-content').length == 0) {
+                            setInterval(function () {
+                                if (!loaded && $('div.loader-content').length == 0) {
+                                    $('#main').append('<div class="loader-content"><img src="img/ajax-loader.gif"></div>');
+                                }
+                            }, 500);
                         }
-                        $.get('_pages/default'+ append +'.md', function(data) {
+                        $.get('_pages/'+ page +'.md', function(data) {
                             loadMD(c, data);
+                        }).fail(function() {
+                            var append = '';
+                            if (store.get('lang') != conf.defaultLanguage) {
+                                 append = '_'+ store.get('lang');
+                            }
+                            $.get('_pages/default'+ append +'.md', function(data) {
+                                loadMD(c, data);
+                            });
                         });
                     });
                 }
-                $(window).scrollTop(0);
             }
         });
 
@@ -168,6 +178,7 @@ $(document).ready(function () {
         $('#form textarea').val(data);
         $('#content').html('');
         c.swap(html, function() {
+            loaded = true;
             if ($("h1").length > 0) {
                 title = $("h1:first").text();
                 // Add return button before page title
@@ -185,11 +196,15 @@ $(document).ready(function () {
                 }
             });
 
+            $("#content").fadeIn(100);
+
             // Scroll to anchor
             if (typeof anchor !== 'undefined' && $('#'+ anchor).length > 0) {
                 $('html, body').animate({
                     'scrollTop': $('#'+ anchor).offset().top - 10
                 }, 500);
+            } else {
+                $(window).scrollTop(0);
             }
         });
     }

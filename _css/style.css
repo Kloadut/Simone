@@ -175,3 +175,20 @@ p {
     text-decoration: none;
     color: black;
 }
+
+.loader-content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    padding-top: 10%;
+}
+.loader-content img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
