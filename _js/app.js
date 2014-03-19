@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#logo a').tooltip();
+    $('#logo a').attr('href', '#/');
     $('#content').hide();
 
     marked.setOptions({
