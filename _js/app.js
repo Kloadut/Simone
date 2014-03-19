@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#logo a').tooltip();
     $('#content').hide();
 
     marked.setOptions({
