@@ -24,6 +24,9 @@ h2, h3 {
     margin-top: 40px;
 }
 
+h1 {
+    margin: 30px 0;
+}
 
 pre {
     padding: 0;
@@ -192,3 +195,20 @@ p {
     vertical-align: middle;
 }
 
+#logo {
+    position: relative;
+    float: right;
+    margin: 15px;
+}
+
+#logo img {
+    width: 80px;
+}
+
+#logo a {
+    opacity: 0.2;
+}
+
+#logo a:hover {
+    opacity: 1;
+}

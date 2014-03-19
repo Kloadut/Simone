@@ -82,6 +82,7 @@
         <div id="form" style="display: none">
             <textarea cols="80" rows="40"></textarea>
         </div>
+        <div id="logo"><a href="#/"><img src="logo.png"></a></div>
         <div id="content">
             <?php echo $content ?>
         </div>
