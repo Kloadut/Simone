@@ -36,12 +36,12 @@ $(document).ready(function () {
                     currentLang = store.get('lang');
                     if (currentLang != conf.defaultLanguage) {
                         page = page +'_'+ currentLang;
-                        c.redirect('#/'+ page);
+                        c.viewPage(page);
                     }
                 } else if (page.substr(page.length - 2) == conf.defaultLanguage) {
                     // Indicate page specifically
                     page = page.substr(0, page.length - 3);
-                    c.redirect('#/'+ page);
+                    c.viewPage(page);
                 }
                 store.set('page', page);
 
@@ -63,6 +63,30 @@ $(document).ready(function () {
                         });
                     });
                 }
+            },
+            viewPage: function(page) {
+                var c = this;
+                c.view(page);
+                title = page +' • '+ conf.siteName;
+                $('#sendModal').modal('hide');
+                $('.actions').children().hide();
+                $('#form').hide();
+                $('#edit').attr('href', '#/'+ page +'/edit').fadeIn('fast');
+                $('#content').fadeIn('fast');
+
+                defaultLanguage = conf.defaultLanguage;
+                languages = conf.languages;
+                var href = document.location.href;
+                if (href.substr(href.length - 3, 1) == '_') {
+                    href = href.substr(0, href.length - 3);
+                }
+                $(".languages ul.dropdown-menu").html('');
+                $.each( languages, function( key, val ) {
+                    if (key == defaultLanguage) { append = '' }
+                    else { append = '_'+key }
+                    $(".languages ul.dropdown-menu").append('<li><a class="change-language" data-lang="'+ key +'" href="'+ href+append +'">'+ val +'</a></li>');
+                });
+                $(".languages").removeClass('hide').fadeIn('fast');
             }
         });
 
@@ -71,33 +95,12 @@ $(document).ready(function () {
             if (absolutePage !== "") {
                 c.redirect('/#/'+ absolutePage);
             } else {
-                c.redirect('#', 'index');
+                c.viewPage('index');
             }
         });
 
         sam.get('#/:name', function (c) {
-            c.view(c.params['name']);
-            title = c.params['name'] +' • '+ conf.siteName;
-            $('#sendModal').modal('hide');
-            $('.actions').children().hide();
-            $('#form').hide();
-            $('#edit').attr('href', '#/'+ c.params['name'] +'/edit').fadeIn('fast');
-            $('#content').fadeIn('fast');
-
-            defaultLanguage = conf.defaultLanguage;
-            languages = conf.languages;
-            var href = document.location.href;
-            if (href.substr(href.length - 3, 1) == '_') {
-                href = href.substr(0, href.length - 3);
-            }
-            $(".languages ul.dropdown-menu").html('');
-            $.each( languages, function( key, val ) {
-                if (key == defaultLanguage) { append = '' }
-                else { append = '_'+key }
-                $(".languages ul.dropdown-menu").append('<li><a class="change-language" data-lang="'+ key +'" href="'+ href+append +'">'+ val +'</a></li>');
-            });
-            $(".languages").removeClass('hide').fadeIn('fast');
-
+            c.viewPage(c.params['name']);
         });
 
         sam.get('#/:name/edit', function (c) {
