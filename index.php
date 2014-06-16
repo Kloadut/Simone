@@ -55,6 +55,8 @@
     <link rel="stylesheet" type="text/css" href="_css/solarized_dark.min.css">
     <link rel="stylesheet" type="text/css" href="_css/fonts.css">
     <link rel="stylesheet" type="text/css" href="_css/style.css">
+    <!-- Always define js console -->
+    <script type="text/javascript">if (typeof console === "undefined" || typeof console.log === "undefined") {console = {};console.log = function () {};}</script>
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];
