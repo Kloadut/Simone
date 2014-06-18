@@ -82,9 +82,7 @@ $(document).ready(function () {
                 }
                 $(".languages ul.dropdown-menu").html('');
                 $.each( languages, function( key, val ) {
-                    if (key == defaultLanguage) { append = '' }
-                    else { append = '_'+key }
-                    $(".languages ul.dropdown-menu").append('<li><a class="change-language" data-lang="'+ key +'" href="'+ href+append +'">'+ val +'</a></li>');
+                    $(".languages ul.dropdown-menu").append('<li><a class="change-language" data-lang="'+ key +'" href="'+ href +'_'+ key +'">'+ val +'</a></li>');
                 });
                 $(".languages").removeClass('hide').fadeIn('fast');
             }
