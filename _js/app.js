@@ -67,6 +67,8 @@ $(document).ready(function () {
             viewPage: function(page) {
                 var c = this;
                 c.view(page);
+                // Get current page
+                page = store.get('page')
                 title = page +' • '+ conf.siteName;
                 $('#sendModal').modal('hide');
                 $('.actions').children().hide();
@@ -76,7 +78,7 @@ $(document).ready(function () {
 
                 defaultLanguage = conf.defaultLanguage;
                 languages = conf.languages;
-                var href = document.location.href;
+                var href = '#/'+ page;
                 if (href.substr(href.length - 3, 1) == '_') {
                     href = href.substr(0, href.length - 3);
                 }
