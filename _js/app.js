@@ -36,8 +36,10 @@ $(document).ready(function () {
                     currentLang = store.get('lang');
                     if (currentLang != conf.defaultLanguage) {
                         page = page +'_'+ currentLang;
-                        c.viewPage(page);
                     }
+                } else if (page.substr(page.length - 2) == conf.defaultLanguage) {
+                    // Indicate page specifically
+                    page = page.substr(0, page.length - 3);
                 }
                 store.set('page', page);
 
