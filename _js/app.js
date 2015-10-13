@@ -280,7 +280,6 @@ $(document).ready(function () {
         i18n = lng;
         $.getJSON('config.json', function(data) {
             conf = data;
-            console.log(conf);
             if (store.get('lang') !== null) {
                 changeLanguage(store.get('lang'));
             } else {
